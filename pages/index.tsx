@@ -27,7 +27,7 @@ export default function Home() {
   const [messageState, setMessageState] = useState<{
     messages: Message[];
     pending?: string;
-    history: BaseChatMessage[];
+    history: InstanceType<typeof BaseChatMessage>[];
     pendingSourceDocs?: Document[];
   }>({
     messages: [
@@ -93,8 +93,8 @@ export default function Home() {
       });
       const data = await response.json();
       console.log('data', data);
-      let req: BaseChatMessage = new HumanChatMessage(question);
-      let respond: BaseChatMessage = new AIChatMessage(data.text);
+      let req: InstanceType<typeof BaseChatMessage> = new HumanChatMessage(question);
+      let respond: InstanceType<typeof BaseChatMessage> = new AIChatMessage(data.text);
 
       if (data.error) {
         setError(data.error);

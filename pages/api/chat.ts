@@ -9,14 +9,13 @@ export default async function handler(
   res: NextApiResponse,
 ) {
   const { question, history } = req.body;
-
-  let histories: BaseChatMessage[] = [];
+  let histories: InstanceType<typeof BaseChatMessage>[] = [];
   history.forEach(hist => {
     if(hist['type'] === 'human')  {
-      let req: BaseChatMessage = new HumanChatMessage(question);
+      let req: InstanceType<typeof BaseChatMessage> = new HumanChatMessage(question);
       histories.push(req);
     } else if (hist['type'] === 'ai') {
-      let respond: BaseChatMessage = new AIChatMessage(question);
+      let respond: InstanceType<typeof BaseChatMessage> = new AIChatMessage(question);
       histories.push(respond);
     }
   });

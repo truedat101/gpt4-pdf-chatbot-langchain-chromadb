@@ -20,7 +20,7 @@
     "chromadb": "^1.5.2",
     "clsx": "^1.2.1",
     "dotenv": "^16.0.3",
-    "langchain": "0.0.90",
+    "langchain": "0.0.180",
     "lucide-react": "^0.125.0",
     "mammoth": "^1.5.1",
     "next": "13.2.3",
